@@ -2,7 +2,21 @@
 
 function numToArray(number) {
   let myArray = Array.from(String(number), Number);
+  console.log(typeof myArray[0]);
   return myArray;
+}
+
+function arrReducer(numberArray) {
+  const reducer = (previousValue, currentValue) => previousValue + currentValue;
+  return numberArray.reduce(reducer);
+}
+
+function checkLastDigit(number) {
+  let numCheck = number % 10;
+  if (numCheck === 0) {
+    return "Valid Card Number"
+  } 
+    return "Invalid Card Number"
 }
 
 // FOR EACH LOOP METHOD
@@ -42,14 +56,3 @@ function validator() {
   })
   return newNumber;
 }
-
-// USING FOR LOOP - BUGGED
-
-// function validator() {
-//   const numArray = [1, 2, 3, 4, 4, 3, 2, 1, 1, 2, 3, 4, 4, 3, 2, 1]
-//   let newNumber = [];
-//   for (let i = 1; i <= numArray.length - 1; i +=2) {
-//    newNumber.push(numArray[i] * 2);
-//   }
-//   return newNumber;
-// };
