@@ -1,11 +1,11 @@
 // SAMPLE CARD NUMBERS
 
-let AMEX = [3, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-let AMEX2 = [3, 7, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-let notAMEX = [3, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-let VISA = [4, 4, 5, 6, 4, 4, 5, 6, 4, 4, 5, 6, 4, 4, 5, 6];
-let MASTER = [5, 5, 6, 5, 5, 5, 6, 5, 5, 5, 6, 5, 5, 5, 6, 5];
-let DISCOVER = [6, 7, 8, 9, 6, 7, 8, 9, 6, 7, 8, 9, 6, 7, 8, 9];
+const AMEX = [3, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+const AMEX2 = [3, 7, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+const notAMEX = [3, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+const VISA = [4, 4, 5, 6, 4, 4, 5, 6, 4, 4, 5, 6, 4, 4, 5, 6];
+const MASTER = [5, 5, 6, 5, 5, 5, 6, 5, 5, 5, 6, 5, 5, 5, 6, 5];
+const DISCOVER = [6, 7, 8, 9, 6, 7, 8, 9, 6, 7, 8, 9, 6, 7, 8, 9];
 
 // UTILITY FUNCTIONS
 
@@ -24,15 +24,15 @@ function arrReducer(numberArray) { // ADDS ALL DIGITS IN ARRAY AND RETURNS SUM
 function checkLastDigit(number) { // CHECKS TO SEE IF LAST DIGIT IS A 0 OR NOT
   let numCheck = number % 10;
   if (numCheck === 0) {
-    return "Valid Card Number"
+    return "Valid Card Number";
   } 
-    return "Invalid Card Number"
+    return "Invalid Card Number";
 }
 
 // CHECK CREDIT COMPANY AND VALID CARD USING SPLICE - BUGGED
 
 function checkCompany(numberArray) {
-  if (numberArray.length = 16) {
+  if (numberArray.length === 16) {
     console.log(numberArray.length);
     let spliceSixteen = numberArray.splice(0, 1)
     let spliceFifteen = numberArray.splice(0, 2)
@@ -60,24 +60,25 @@ function checkCompany(numberArray) {
 // SLICE METHOD ON CHECK COMPANY
 
 function checkCompany(numberArray) {
-  if (numberArray.length = 16) {
+  if (numberArray.length === 16) {
     console.log(numberArray.length);
     let sliceSixteen = numberArray.slice(0, 1);
     let sliceFifteen = numberArray.slice(0, 2);
     console.log(sliceSixteen);
     console.log(sliceFifteen);
-    if (sliceSixteen === 4) {
+    if (sliceSixteen[0] === 4) {
       console.log(sliceSixteen);
       return "You have a valid Visa Card."
-    } else if (sliceSixteen === 5) {
+    } else if (sliceSixteen[0] === 5) {
       return "You have a valid Mastercard."
-    } else if (sliceSixteen === 6) {
+    } else if (sliceSixteen[0] === 6) {
       return "You have a valid Discover Card."
-    } else {
-      return "Invalid Card Number."
+    // } else {
+    //   return "Invalid Card Number."
     }
-  } else if (numberArray.length = 15) {
-    if (sliceFifteen === 34 || sliceFifteen === 37) {
+  } else if (numberArray.length === 15) {
+    console.log(sliceFifteen);
+    if (sliceFifteen[0] === 3 && sliceFifteen[1] === 4 || sliceFifteen[0] === 3 && sliceFifteen[1] === 7) {
       return "You have a valid American Express Card."
     }
   } else {
@@ -90,20 +91,23 @@ function checkCompany(numberArray) {
 function checkCompany(numberArray) {
   let sliceSixteen = numberArray.slice(0, 1);
   let sliceFifteen = numberArray.slice(0, 2);
-  console.log(numberArray.length);
-  console.log(sliceSixteen);
-  console.log(sliceFifteen);
+  // console.log(numberArray.length);
+  // console.log(sliceSixteen);
+  // console.log(sliceSixteen[0]);
+  // console.log(sliceFifteen);
+  // console.log(typeof numberArray);
+  // console.log(typeof sliceSixteen);
   let result = ""
-  if (numberArray.length = 16 && sliceSixteen === 4) {
-    console.log(numberArray.length);
-    console.log(sliceSixteen);
-    console.log(sliceFifteen);
+  if (numberArray.length === 16 && sliceSixteen[0] === 4) {
+    // console.log(numberArray.length);
+    // console.log(sliceSixteen);
+    // console.log(sliceFifteen);
     result = "You have a valid Visa Card."
-  } else if (numberArray.length = 16 && sliceSixteen === 5) {
+  } else if (numberArray.length === 16 && sliceSixteen[0] === 5) {
     result = "You have a valid Mastercard."
-  } else if (numberArray.length = 16 && sliceSixteen === 6) {
+  } else if (numberArray.length === 16 && sliceSixteen[0] === 6) {
     result = "You have a valid Discover Card."
-  } else if ((numberArray.length = 15 && sliceFifteen === 34) || (numberArray.length = 15 && sliceFifteen === 37)) {
+  } else if ((numberArray.length === 15 && sliceFifteen[0] === 3 && sliceFifteen[1] === 4 ) || (numberArray.length === 15 && sliceFifteen[0] === 3 && sliceFifteen[1] === 7)) {
     result = "You have a valid American Express Card."
   } else {
     result = "Invalid Card Number."
