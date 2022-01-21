@@ -28,6 +28,8 @@ function checkLastDigit(number) {
     return "Invalid Card Number"
 }
 
+// CHECK CREDIT COMPANY AND VALID CARD
+
 function checkCompany(numberArray) {
   if (numberArray.length = 16) {
     console.log(numberArray.length);
